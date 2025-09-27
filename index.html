@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="src/images/creative-agency/loader.png" type="image/png">
+  <title>Creative Agency - Agenko</title>
+  
+  
+</head>
+<body class="bg-[#0E0F11] text-white overflow-x-hidden">
+  
+  <!-- Header -->
+  <div id="header-container"></div>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen bg-black dark:bg-black light:bg-gray-50 pt-32 pb-20 overflow-hidden transition-colors duration-300">
+    
+    <!-- Blur Shapes -->
+    <div class="absolute -top-1/4 -left-1/4 z-0 hero-blur-1">
+      <span class="block w-500 h-500 lg:w-760 lg:h-760 rounded-full bg-primary/40 dark:bg-primary/40 light:bg-primary/30 blur-150"></span>
+    </div>
+    <div class="absolute -top-1/4 -right-1/4 z-0 hero-blur-2">
+      <span class="block w-500 h-500 lg:w-660 lg:h-660 rounded-full bg-[#8778F5]/40 dark:bg-[#8778F5]/40 light:bg-purple-400/30 blur-150"></span>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="hero-content max-w-7xl mx-auto">
+        
+        <!-- Title -->
+        <div class="mb-4">
+          <h1 class="text-7xl sm:text-8xl lg:text-[160px] xl:text-[200px] leading-none font-bold text-white dark:text-white light:text-gray-900 transition-colors" id="heroTitle">
+            CREATIVE
+          </h1>
+        </div>
+        
+        <!-- Agency -->
+        <div class="relative flex justify-end items-center mb-12">
+          <h2 class="text-7xl sm:text-8xl lg:text-[160px] xl:text-[200px] leading-none font-bold text-white dark:text-white light:text-gray-900 transition-colors" id="heroAgency">
+            AGENCY
+          </h2>
+          <div class="absolute -right-4 top-1/2 -translate-y-1/2 hidden lg:block hero-spiral">
+            <img src="/src/images/creative-agency/hero/element.png" alt="element" class="w-24 h-24 lg:w-32 lg:h-32 opacity-60 dark:opacity-60 light:opacity-40">
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="max-w-xl lg:max-w-md hero-description">
+          <p class="text-base lg:text-lg leading-relaxed text-gray-300 dark:text-gray-300 light:text-gray-700 transition-colors">
+            We are a <span class="text-primary font-semibold">Creative Agency</span> <span class="hero-changing-text text-gray-400 dark:text-gray-400 light:text-gray-600">with over 25 years of Our experience</span>, specializing in delivering cutting-edge digital solutions, including web design.
+          </p>
+        </div>
+
+        <!-- Button -->
+        <div class="mt-12 hero-button">
+          <a href="about.html" class="inline-flex items-center justify-center bg-primary px-10 py-4 rounded-full text-black font-bold text-base hover:opacity-90 transition-all">
+            Learn More
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+<!-- Video Section -->
+<section class="video-section relative z-10 py-20">
+    <div class="container mx-auto px-4 lg:max-w-7xl">
+        <div class="w-full">
+            <div class="relative overflow-hidden rounded-2xl">
+                <img 
+                    src="./src/images/creative-agency/hero/hero-img1.jpg" 
+                    alt="Hero Image"
+                    class="w-full"
+                />
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                    <a 
+                        href="https://www.youtube.com/watch?v=PJK2253cVgc" 
+                        class="video-popup w-24 h-24 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm flex items-center justify-center text-white text-2xl transition-all duration-300 hover:scale-110"
+                    >
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Modal -->
+<div id="videoModal" class="hidden fixed inset-0 z-50 bg-black/80">
+    <div class="relative w-full max-w-4xl mx-4">
+        <button 
+            onclick="closeVideo()" 
+            class="absolute -top-12 right-0 text-white text-3xl hover:text-[#9CFE4F] transition-colors"
+        >
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="relative pt-[56.25%]">
+            <iframe 
+                id="videoIframe"
+                class="absolute top-0 left-0 w-full h-full rounded-lg"
+                src="" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+            ></iframe>
+        </div>
+    </div>
+</div>
+<!-- Services Section -->
+<section class="relative py-32 bg-black dark:bg-black light:bg-gray-50 transition-colors duration-300 services-section">
+    <div class="container mx-auto px-4 max-w-7xl">
+        
+        <!-- Section Header -->
+        <div class="flex flex-wrap items-end mb-12 lg:mb-16">
+            <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                <div class="section-title">
+                    <span class="inline-flex items-center text-white border border-primary rounded-full px-4 py-2 mb-5">
+                        Our Service 
+                        <span class="w-12 h-px bg-primary ml-2"></span>
+                    </span>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight transition-colors">
+                        Innovative Services That<br>
+                        Elevate Your Brand
+                    </h2>
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-1/2">
+                <div class="text-box lg:float-right max-w-md">
+                    <p class="text-gray-400 text-base lg:text-lg transition-colors">
+                        We are a <span class="text-white font-semibold">digital Creative agency</span> with 25 years of experience, specializing in delivering cutting-edge
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="flex flex-wrap justify-center -mx-4">
+            
+            <!-- Service Box 1 -->
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="bg-[#18191B] p-10 hover:bg-primary transition-all duration-300 group">
+                    <div class="icon text-6xl text-white mb-6 group-hover:text-black transition-colors">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-2xl font-bold text-white mb-5 group-hover:text-black transition-colors">
+                            Website Development
+                        </h4>
+                        <p class="text-gray-400 mb-6 group-hover:text-black transition-colors">
+                            We are responsive user-friendly websites tailored to your brand, ensuring seamless functionality, engaging design optimized.
+                        </p>
+                        <a href="service-details.html" class="inline-flex items-center text-white font-semibold group-hover:text-black relative after:content-[''] after:w-10 after:h-px after:bg-white after:ml-2 after:transition-all hover:after:w-12 group-hover:after:bg-black transition-colors">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Box 2 -->
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8 lg:mt-16">
+                <div class="bg-[#18191B] p-10 hover:bg-primary transition-all duration-300 group">
+                    <div class="icon text-6xl text-white mb-6 group-hover:text-black transition-colors">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-2xl font-bold text-white mb-5 group-hover:text-black transition-colors">
+                            Digital Marketing
+                        </h4>
+                        <p class="text-gray-400 mb-6 group-hover:text-black transition-colors">
+                            Boost your brand with expert digital marketing: SEO, social media, content creation, paid ads, and data-driven strategies for growth.
+                        </p>
+                        <a href="service-details.html" class="inline-flex items-center text-white font-semibold group-hover:text-black relative after:content-[''] after:w-10 after:h-px after:bg-white after:ml-2 after:transition-all hover:after:w-12 group-hover:after:bg-black transition-colors">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Box 3 -->
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8 lg:mt-32">
+                <div class="bg-[#18191B] p-10 hover:bg-primary transition-all duration-300 group">
+                    <div class="icon text-6xl text-white mb-6 group-hover:text-black transition-colors">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-2xl font-bold text-white mb-5 group-hover:text-black transition-colors">
+                            Creative Branding
+                        </h4>
+                        <p class="text-gray-400 mb-6 group-hover:text-black transition-colors">
+                            We design distinctive branding and visual identities that connect with your audience, boosting brand recognition and leaving.
+                        </p>
+                        <a href="service-details.html" class="inline-flex items-center text-white font-semibold group-hover:text-black relative after:content-[''] after:w-10 after:h-px after:bg-white after:ml-2 after:transition-all hover:after:w-12 group-hover:after:bg-black transition-colors">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Projects Section -->
+<section class="projects-section relative py-32 bg-black transition-colors duration-300">
+    <div class="container mx-auto px-4 max-w-7xl">
+        
+        <!-- Section Title -->
+        <div class="text-center mb-12">
+            <span class="inline-flex items-center text-white border border-primary rounded-full px-4 py-2 mb-5">
+                Complete Work
+            </span>
+            <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Creative Projects We've<br>
+                Delivered To Client
+            </h2>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="flex flex-wrap -mx-4">
+            
+            <!-- Left Column -->
+            <div class="w-full lg:w-7/12 px-4">
+                <!-- Project 1 -->
+                <div class="project-item mb-16 group">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <img 
+                            src="./src/images/creative-agency/project/project1.jpg" 
+                            alt="Project"
+                            class="w-full transform group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute bottom-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">Website</a>
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">Landing Page</a>
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">UI/UX</a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-2xl font-bold text-white mb-3 hover:text-primary transition-colors">
+                            <a href="project-details.html">Banking & Financial Mobile Apps</a>
+                        </h4>
+                        <p class="text-gray-400">We develop secure, user-friendly banking apps, streamlining financial services</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-item mb-16 group">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <img 
+                            src="./src/images/creative-agency/project/project3.jpg" 
+                            alt="Project"
+                            class="w-full transform group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute bottom-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">Website</a>
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">Landing Page</a>
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">UI/UX</a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-2xl font-bold text-white mb-3 hover:text-primary transition-colors">
+                            <a href="project-details.html">Software Agency Website Header</a>
+                        </h4>
+                        <p class="text-gray-400">Building innovative software solutions to drive your business forward.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="w-full lg:w-5/12 px-4">
+                <!-- Project 2 -->
+                <div class="project-item mb-16 group">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <img 
+                            src="./src/images/creative-agency/project/project2.jpg" 
+                            alt="Project"
+                            class="w-full transform group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute bottom-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">Website</a>
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">Landing Page</a>
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">UI/UX</a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-2xl font-bold text-white mb-3 hover:text-primary transition-colors">
+                            <a href="project-details.html">Knead That Dough Brand Identity</a>
+                        </h4>
+                        <p class="text-gray-400">Crafting a fresh, vibrant brand identity for Knead That Dough.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-item mb-16 group">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <img 
+                            src="./src/images/creative-agency/project/project2.jpg" 
+                            alt="Project"
+                            class="w-full transform group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute bottom-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">Website</a>
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">Landing Page</a>
+                            <a href="#" class="px-4 py-2 bg-[#18191B] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">UI/UX</a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-2xl font-bold text-white mb-3 hover:text-primary transition-colors">
+                            <a href="project-details.html">Crypto Tap Wallet Mobile Apps</a>
+                        </h4>
+                        <p class="text-gray-400">Secure, fast, and user-friendly crypto wallet for seamless.</p>
+                    </div>
+                </div>
+
+                <!-- View All Button -->
+                <div class="text-center lg:text-left">
+                    <a href="projects.html" class="inline-flex items-center justify-center bg-primary px-10 py-4 rounded-full text-black font-bold text-base hover:opacity-90 transition-all">
+                        View All
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="process-section relative py-20 bg-black transition-colors duration-300">
+    <div class="container mx-auto px-4 max-w-7xl">
+        
+        <!-- Section Title -->
+        <div class="text-center mb-16">
+            <span class="inline-flex items-center text-white border border-primary rounded-full px-4 py-2 mb-5">
+                Working Process
+            </span>
+            <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                The Process Behind the<br>
+                Magic Step by Step
+            </h2>
+        </div>
+
+        <!-- Process Line -->
+        <div class="relative">
+            <div class="hidden lg:block absolute top-8 left-0 right-0 h-px bg-[#313131] z-0"></div>
+            
+            <!-- Process Grid -->
+            <div class="flex flex-wrap -mx-4 relative z-10">
+                
+                <!-- Step 1 -->
+                <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-12">
+                    <div class="process-box text-center">
+                        <div class="inline-flex items-center justify-center bg-primary text-black rounded-full px-6 py-2 mb-10 font-bold">
+                            Step 01
+                        </div>
+                        <div class="bg-[#18191B] p-8">
+                            <div class="icon text-5xl text-white mb-6">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h5 class="text-xl font-bold text-white mb-4">Research</h5>
+                            <p class="text-gray-400">In-depth research to uncover of insights and drive informed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-12">
+                    <div class="process-box text-center">
+                        <div class="inline-flex items-center justify-center bg-primary text-black rounded-full px-6 py-2 mb-10 font-bold">
+                            Step 02
+                        </div>
+                        <div class="bg-[#18191B] p-8">
+                            <div class="icon text-5xl text-white mb-6">
+                                <i class="fas fa-pencil-ruler"></i>
+                            </div>
+                            <h5 class="text-xl font-bold text-white mb-4">Concept Design</h5>
+                            <p class="text-gray-400">Creative concept designs that transform ideas into impactful</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-12">
+                    <div class="process-box text-center">
+                        <div class="inline-flex items-center justify-center bg-primary text-black rounded-full px-6 py-2 mb-10 font-bold">
+                            Step 03
+                        </div>
+                        <div class="bg-[#18191B] p-8">
+                            <div class="icon text-5xl text-white mb-6">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h5 class="text-xl font-bold text-white mb-4">Implementation</h5>
+                            <p class="text-gray-400">Efficient implementation of the tailored strategies to achieve</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-12">
+                    <div class="process-box text-center">
+                        <div class="inline-flex items-center justify-center bg-primary text-black rounded-full px-6 py-2 mb-10 font-bold">
+                            Step 04
+                        </div>
+                        <div class="bg-[#18191B] p-8">
+                            <div class="icon text-5xl text-white mb-6">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <h5 class="text-xl font-bold text-white mb-4">Testing</h5>
+                            <p class="text-gray-400">Testing to ensure flawless good functionality and optimal user</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Company Section -->
+<section class="company-section relative py-32 bg-[#18191B] transition-colors duration-300">
+    <div class="container mx-auto px-4 max-w-7xl">
+        
+        <div class="flex flex-wrap items-center -mx-4">
+            
+            <!-- Content -->
+            <div class="w-full lg:w-5/12 px-4 mb-12 lg:mb-0">
+                <div class="text-center lg:text-left">
+                    <span class="inline-flex items-center text-white border border-primary rounded-full px-4 py-2 mb-5">
+                        Company
+                    </span>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                        Trusted Our Company
+                    </h2>
+                    <p class="text-gray-400 text-lg">
+                        We are a <span class="text-white font-semibold">Digital Creative agency</span> with 25 years of experience, specializing in delivering cutting-edge
+                    </p>
+                </div>
+            </div>
+
+            <!-- Clients Grid -->
+            <div class="w-full lg:w-7/12 px-4">
+                <div class="grid grid-cols-3 gap-6">
+                    
+                    <div class="client-item border border-[#313131] p-8 text-center hover:border-primary transition-colors">
+                        <img src="./src/images/creative-agency/client/client1.png" alt="Client" class="mx-auto opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                    
+                    <div class="client-item border border-[#313131] p-8 text-center hover:border-primary transition-colors">
+                        <img src="./src/images/creative-agency/client/client2.png" alt="Client" class="mx-auto opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                    
+                    <div class="client-item border border-[#313131] p-8 text-center hover:border-primary transition-colors">
+                        <img src="./src/images/creative-agency/client/client3.png" alt="Client" class="mx-auto opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                    
+                    <div class="client-item border border-[#313131] p-8 text-center hover:border-primary transition-colors">
+                        <img src="./src/images/creative-agency/client/client4.png" alt="Client" class="mx-auto opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                    
+                    <div class="client-item border border-[#313131] p-8 text-center hover:border-primary transition-colors">
+                        <img src="./src/images/creative-agency/client/client5.png" alt="Client" class="mx-auto opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                    
+                    <div class="client-item border border-[#313131] p-8 text-center hover:border-primary transition-colors">
+                        <img src="./src/images/creative-agency/client/client6.png" alt="Client" class="mx-auto opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section relative py-32 bg-black transition-colors duration-300">
+    <div class="container mx-auto px-4 max-w-7xl">
+        
+        <!-- Header -->
+        <div class="flex flex-wrap items-center justify-between mb-12">
+            <div class="w-full lg:w-7/12 mb-8 lg:mb-0 text-center lg:text-left">
+                <span class="inline-flex items-center text-white border border-primary rounded-full px-4 py-2 mb-5">
+                    Our Team
+                </span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                    Meet Our Talented<br>
+                    Skillful Team
+                </h2>
+            </div>
+            <div class="w-full lg:w-5/12 text-center lg:text-right">
+                <a href="team.html" class="inline-flex items-center justify-center bg-primary px-10 py-4 rounded-full text-black font-bold text-base hover:opacity-90 transition-all">
+                    View Teams
+                </a>
+            </div>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- Team Member 1 -->
+            <div class="team-item group">
+                <div class="relative overflow-hidden rounded-2xl mb-5">
+                    <img 
+                        src="./src/images/creative-agency/team/team1.jpg" 
+                        alt="Team Member"
+                        class="w-full"
+                    >
+                    <div class="absolute top-5 right-5">
+                        <a href="team-details.html" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-primary transition-colors">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <span class="text-gray-400 text-sm block mb-2">Developer</span>
+                    <h5 class="text-xl font-bold text-white">Mr. David Liam</h5>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-item group">
+                <div class="relative overflow-hidden rounded-2xl mb-5">
+                    <img 
+                        src="./src/images/creative-agency/team/team2.jpg" 
+                        alt="Team Member"
+                        class="w-full"
+                    >
+                    <div class="absolute top-5 right-5">
+                        <a href="team-details.html" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-primary transition-colors">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <span class="text-gray-400 text-sm block mb-2">Web Designer</span>
+                    <h5 class="text-xl font-bold text-white">Jessica Sherlock Dina</h5>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-item group">
+                <div class="relative overflow-hidden rounded-2xl mb-5">
+                    <img 
+                        src="./src/images/creative-agency/team/team3.jpg" 
+                        alt="Team Member"
+                        class="w-full"
+                    >
+                    <div class="absolute top-5 right-5">
+                        <a href="team-details.html" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-primary transition-colors">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <span class="text-gray-400 text-sm block mb-2">Video Editor</span>
+                    <h5 class="text-xl font-bold text-white">Mr. Adam Smith Roy</h5>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-item group">
+                <div class="relative overflow-hidden rounded-2xl mb-5">
+                    <img 
+                        src="./src/images/creative-agency/team/team4.jpg" 
+                        alt="Team Member"
+                        class="w-full"
+                    >
+                    <div class="absolute top-5 right-5">
+                        <a href="team-details.html" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-primary transition-colors">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <span class="text-gray-400 text-sm block mb-2">Marketer</span>
+                    <h5 class="text-xl font-bold text-white">Miss Alex Mika</h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Awards Section -->
+<section class="awards-section relative py-32 bg-black transition-colors duration-300">
+    <div class="container mx-auto px-4 max-w-7xl">
+        
+        <!-- Header -->
+        <div class="flex flex-wrap items-end mb-12">
+            <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                <span class="inline-flex items-center text-white border border-primary rounded-full px-4 py-2 mb-5">
+                    Our Award
+                </span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                    Striving for Excellence<br>
+                    Awards & Recognition
+                </h2>
+            </div>
+            <div class="w-full lg:w-1/2">
+                <div class="lg:float-right max-w-md">
+                    <p class="text-gray-400 text-lg">
+                        We are a <span class="text-white font-semibold">digital Creative agency</span> with 25 years of experience, specializing in delivering cutting-edge
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awards Content -->
+        <div class="flex flex-wrap -mx-4">
+            
+            <!-- Image -->
+            <div class="w-full lg:w-4/12 px-4 mb-12">
+                <div class="rounded-2xl overflow-hidden">
+                    <img src="./src/images/creative-agency/gallery/award1.jpg" alt="Award" class="w-full">
+                </div>
+            </div>
+
+            <!-- Awards List -->
+            <div class="w-full lg:w-8/12 px-4">
+                <div class="space-y-5">
+                    
+                    <!-- Award Item -->
+                    <div class="award-item flex flex-wrap items-center justify-between bg-[#18191B] p-6 rounded-lg hover:bg-[#1F2023] transition-colors group">
+                        <div class="w-full md:w-3/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">Microsoft Platform</h5>
+                        </div>
+                        <div class="w-full md:w-6/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Website 2024 - 1st Winner</h5>
+                        </div>
+                        <div class="w-full md:w-3/12 text-left md:text-right">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">Mar 2024</h5>
+                        </div>
+                    </div>
+
+                    <!-- Award Item -->
+                    <div class="award-item flex flex-wrap items-center justify-between bg-[#18191B] p-6 rounded-lg hover:bg-[#1F2023] transition-colors group">
+                        <div class="w-full md:w-3/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">LinkedIn Platform</h5>
+                        </div>
+                        <div class="w-full md:w-6/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Mobile App Winner</h5>
+                        </div>
+                        <div class="w-full md:w-3/12 text-left md:text-right">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">Apr 2024</h5>
+                        </div>
+                    </div>
+
+                    <!-- Award Item -->
+                    <div class="award-item flex flex-wrap items-center justify-between bg-[#18191B] p-6 rounded-lg hover:bg-[#1F2023] transition-colors group">
+                        <div class="w-full md:w-3/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">Adobe Platform</h5>
+                        </div>
+                        <div class="w-full md:w-6/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Digital Vanguard - 1st Winner</h5>
+                        </div>
+                        <div class="w-full md:w-3/12 text-left md:text-right">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">May 2024</h5>
+                        </div>
+                    </div>
+
+                    <!-- Award Item -->
+                    <div class="award-item flex flex-wrap items-center justify-between bg-[#18191B] p-6 rounded-lg hover:bg-[#1F2023] transition-colors group">
+                        <div class="w-full md:w-3/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">Fiverr Platform</h5>
+                        </div>
+                        <div class="w-full md:w-6/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Winner Innova Excel Award</h5>
+                        </div>
+                        <div class="w-full md:w-3/12 text-left md:text-right">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">Jul 2024</h5>
+                        </div>
+                    </div>
+
+                    <!-- Award Item -->
+                    <div class="award-item flex flex-wrap items-center justify-between bg-[#18191B] p-6 rounded-lg hover:bg-[#1F2023] transition-colors group">
+                        <div class="w-full md:w-3/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">Upwork Platform</h5>
+                        </div>
+                        <div class="w-full md:w-6/12 mb-4 md:mb-0">
+                            <h5 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Top Rated Winner Award</h5>
+                        </div>
+                        <div class="w-full md:w-3/12 text-left md:text-right">
+                            <h5 class="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">Aug 2024</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonial Section -->
+<section class="testimonial-section relative py-32 bg-[#18191B] overflow-hidden transition-colors duration-300">
+    
+    <!-- Decorative Shapes -->
+    <div class="absolute top-0 left-0 w-[650px] h-[650px] rounded-full border-[85px] border-white/[0.03] -translate-x-1/3 -translate-y-1/3"></div>
+    <div class="absolute bottom-0 right-0 w-[650px] h-[650px] rounded-full border-[85px] border-white/[0.03] translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="container mx-auto px-4 max-w-7xl relative z-10">
+        
+        <!-- Section Title -->
+        <div class="text-center mb-12">
+            <span class="inline-flex items-center text-white border border-primary rounded-full px-4 py-2 mb-5">
+                Testimonial
+            </span>
+            <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Success Stories From Around the Globe
+            </h2>
+        </div>
+
+        <!-- Testimonial Content -->
+        <div class="flex flex-wrap items-center -mx-4">
+            
+            <!-- Image -->
+            <div class="w-full lg:w-4/12 px-4 mb-12 lg:mb-0">
+                <div class="rounded-2xl overflow-hidden">
+                    <img src="./src/images/creative-agency/testimonial/testimonial.jpg" alt="Testimonial" class="w-full">
+                </div>
+            </div>
+
+            <!-- Testimonial Slider -->
+            <div class="w-full lg:w-8/12 px-4">
+                <div class="testimonial-content relative">
+                    
+                    <!-- Background Text -->
+                    <div class="absolute top-0 left-0 text-[100px] font-bold text-white/[0.03] leading-none pointer-events-none">
+                        TESTIMONIAL
+                    </div>
+
+                    <!-- Testimonial Item -->
+                    <div class="testimonial-item relative z-10">
+                        
+                        <!-- Ratings -->
+                        <ul class="flex gap-2 mb-10">
+                            <li class="text-primary text-2xl"><i class="fas fa-star"></i></li>
+                            <li class="text-primary text-2xl"><i class="fas fa-star"></i></li>
+                            <li class="text-primary text-2xl"><i class="fas fa-star"></i></li>
+                            <li class="text-primary text-2xl"><i class="fas fa-star"></i></li>
+                            <li class="text-primary text-2xl"><i class="fas fa-star"></i></li>
+                        </ul>
+
+                        <!-- Quote -->
+                        <p class="text-2xl lg:text-3xl font-bold text-white mb-8 leading-relaxed italic">
+                            Binorly Agency completely transformed our online presence! Their exceptional website development expertise to beyond expectations, creating a visually stunning and user-friendly website. The team's attention to detail and commitment to!
+                        </p>
+
+                        <!-- Author -->
+                        <div class="author-info">
+                            <h4 class="text-xl font-bold text-white">Ms. Alex Mika</h4>
+                            <h5 class="text-lg text-gray-400 font-medium">CEO & Founder</h5>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Blog Section -->
+<section class="blog-section relative py-32 bg-black transition-colors duration-300">
+    <div class="container mx-auto px-4 max-w-7xl">
+        
+        <!-- Header -->
+        <div class="flex flex-wrap items-center justify-between mb-12">
+            <div class="w-full lg:w-7/12 mb-8 lg:mb-0 text-center lg:text-left">
+                <span class="inline-flex items-center text-white border border-primary rounded-full px-4 py-2 mb-5">
+                    Latest Articles
+                </span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                    Stay Updated with Our<br>
+                    Recent Articles
+                </h2>
+            </div>
+            <div class="w-full lg:w-5/12 text-center lg:text-right">
+                <a href="blog-grid.html" class="inline-flex items-center justify-center bg-primary px-10 py-4 rounded-full text-black font-bold text-base hover:opacity-90 transition-all">
+                    View All Blogs
+                </a>
+            </div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Blog Item 1 -->
+            <div class="blog-item bg-[#18191B] rounded-2xl overflow-hidden group">
+                <div class="relative overflow-hidden">
+                    <img 
+                        src="./src/images/creative-agency/blogs/blog1.jpg" 
+                        alt="Blog"
+                        class="w-full transform group-hover:scale-110 transition-transform duration-500"
+                    >
+                </div>
+                <div class="p-6">
+                    <div class="mb-4">
+                        <a href="#" class="inline-block px-5 py-2 bg-[#0E0F11] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">
+                            Website
+                        </a>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3 hover:text-primary transition-colors">
+                        <a href="blog-details.html">MKT Gency for your online business Plane.</a>
+                    </h4>
+                    <p class="text-gray-400 mb-4">Strategic marketing agency boosting to your online business success.</p>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">15 Apr, 2024</a>
+                </div>
+            </div>
+
+            <!-- Blog Item 2 -->
+            <div class="blog-item bg-[#18191B] rounded-2xl overflow-hidden group">
+                <div class="relative overflow-hidden">
+                    <img 
+                        src="./src/images/creative-agency/blogs/blog2.jpg" 
+                        alt="Blog"
+                        class="w-full transform group-hover:scale-110 transition-transform duration-500"
+                    >
+                </div>
+                <div class="p-6">
+                    <div class="mb-4">
+                        <a href="#" class="inline-block px-5 py-2 bg-[#0E0F11] text-white rounded-full text-sm hover:bg-primary hover:text-black transition-colors">
+                            Website
+                        </a>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3 hover:text-primary transition-colors">
+                        <a href="blog-details.html">Meeting Collaboration for your business.</a>
+                    </h4>
+                    <p class="text-gray-400 mb-4">Strategic marketing agency boosting to your online business success.</p>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">15 Apr, 2024</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Main JS -->
+  <script type="module" src="/src/main.js"></script>
+  
+  <!-- Video JS -->
+  <script src="./src/utils/video.js"></script>
+</body>
+</html>
