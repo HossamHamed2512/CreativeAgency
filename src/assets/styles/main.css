@@ -1,0 +1,589 @@
+/* ============================================
+   Tailwind CSS Imports
+   ============================================ */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+/* ============================================
+   CSS Custom Properties (Variables)
+   ============================================ */
+:root {
+  /* Theme Colors */
+  --theme-primary: #9CFE4F;
+  --theme-purple: #a855f7;
+  --theme-pink: #ec4899;
+  --theme-orange: #f97316;
+  --theme-green: #10b981;
+
+  /* Light Mode Colors */
+  --light-bg: #ffffff;
+  --light-bg-alt: #f9fafb;
+  --light-text: #1a1a1a;
+  --light-text-secondary: #4b5563;
+  --light-text-muted: #6b7280;
+  --light-border: #e5e7eb;
+  --light-hover: #f3f4f6;
+
+  /* Dark Mode Colors */
+  --dark-bg: #0E0F11;
+  --dark-bg-alt: #18191B;
+  --dark-text: #ffffff;
+  --dark-text-secondary: #d1d5db;
+  --dark-text-muted: #9ca3af;
+  --dark-border: #313131;
+  --dark-hover: #374151;
+
+  /* Default theme color */
+  --theme-color: var(--theme-primary);
+}
+
+/* ============================================
+   Base Typography Styles
+   ============================================ */
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18191B;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8be93d;
+}
+
+/* Light mode scrollbar */
+html.light ::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color);
+}
+
+/* ============================================
+   Light Mode Base Styles
+   ============================================ */
+html.light {
+  background-color: var(--light-bg);
+}
+
+html.light body {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+/* ============================================
+   Dynamic Theme Color System
+   ============================================ */
+[data-text-color="primary"] {
+  --theme-color: var(--theme-primary);
+}
+
+[data-text-color="purple"] {
+  --theme-color: var(--theme-purple);
+}
+
+[data-text-color="pink"] {
+  --theme-color: var(--theme-pink);
+}
+
+[data-text-color="orange"] {
+  --theme-color: var(--theme-orange);
+}
+
+[data-text-color="green"] {
+  --theme-color: var(--theme-green);
+}
+
+/* Theme Color Applications */
+.text-primary {
+  color: var(--theme-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--theme-color) !important;
+}
+
+.border-primary {
+  border-color: var(--theme-color) !important;
+}
+
+.hover\:text-primary:hover {
+  color: var(--theme-color) !important;
+}
+
+.hover\:bg-primary:hover {
+  background-color: var(--theme-color) !important;
+}
+
+.hover\:border-primary:hover {
+  border-color: var(--theme-color) !important;
+}
+
+/* ============================================
+   Active Page States
+   ============================================ */
+.nav-link.active-page {
+  background-color: var(--theme-color) !important;
+  color: #000000 !important;
+}
+
+.mobile-nav-link.active-mobile-page {
+  color: var(--theme-color) !important;
+  position: relative;
+}
+
+.mobile-nav-link.active-mobile-page::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background-color: var(--theme-color);
+  border-radius: 2px;
+}
+
+/* ============================================
+   About Page Animations
+   ============================================ */
+@keyframes aboutFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.about-float {
+  animation: aboutFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
+
+/* ============================================
+   Light Mode - About Page Styles (FIXED)
+   ============================================ */
+
+/* Page Hero Section */
+html.light section:first-of-type {
+  background-color: var(--light-bg-alt) !important;
+}
+
+html.light section:first-of-type h1 {
+  color: var(--light-text) !important;
+}
+
+html.light section:first-of-type p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:first-of-type .text-primary {
+  color: var(--theme-color) !important;
+}
+
+html.light section:first-of-type nav a {
+  color: var(--light-text-muted) !important;
+}
+
+html.light section:first-of-type nav li:last-child {
+  color: var(--light-text) !important;
+}
+
+/* About Introduction Section */
+html.light section:nth-of-type(2) {
+  background-color: var(--light-bg) !important;
+}
+
+html.light section:nth-of-type(2) h2,
+html.light section:nth-of-type(2) h3,
+html.light section:nth-of-type(2) h4 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(2) p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:nth-of-type(2) span:not(.text-primary) {
+  color: var(--light-text) !important;
+}
+
+/* Mission & Vision Section */
+html.light section:nth-of-type(3) {
+  background-color: var(--light-bg-alt) !important;
+}
+
+html.light section:nth-of-type(3)>div>div.grid>div {
+  background-color: var(--light-bg) !important;
+  border: 1px solid var(--light-border) !important;
+}
+
+html.light section:nth-of-type(3) h2,
+html.light section:nth-of-type(3) h3 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(3) p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:nth-of-type(3) span:not(.bg-primary):not(.text-primary) {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(3) .bg-primary i {
+  color: #000 !important;
+}
+
+/* Values Section */
+html.light section:nth-of-type(4) {
+  background-color: var(--light-bg) !important;
+}
+
+html.light section:nth-of-type(4) h2,
+html.light section:nth-of-type(4) h4 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(4) p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:nth-of-type(4) span:not(.bg-primary) {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(4) .bg-primary i {
+  color: #000 !important;
+}
+
+/* Team Section */
+html.light section:nth-of-type(5) {
+  background-color: var(--light-bg-alt) !important;
+}
+
+html.light section:nth-of-type(5) h2,
+html.light section:nth-of-type(5) h4 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(5) p:not(.text-primary) {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:nth-of-type(5) span:not(.text-primary):not(.bg-primary) {
+  color: var(--light-text) !important;
+}
+
+/* Why Choose Us Section */
+html.light section:nth-of-type(6) {
+  background-color: var(--light-bg) !important;
+}
+
+html.light section:nth-of-type(6) h2,
+html.light section:nth-of-type(6) h4 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(6) p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:nth-of-type(6) span:not(.bg-primary) {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(6) .bg-\[#18191B\] {
+  background-color: var(--light-bg-alt) !important;
+  border: 1px solid var(--light-border) !important;
+}
+
+html.light section:nth-of-type(6) .bg-primary i {
+  color: #000 !important;
+}
+
+/* CTA Section (Last Section) */
+html.light section:last-of-type {
+  background-color: var(--light-bg-alt) !important;
+}
+
+html.light section:last-of-type h2 {
+  color: var(--light-text) !important;
+}
+
+html.light section:last-of-type p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:last-of-type .text-primary {
+  color: var(--theme-color) !important;
+}
+
+/* ============================================
+   Icons Fix - Ensure they appear
+   ============================================ */
+i.fas,
+i.far,
+i.fab,
+i.fa {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+/* Light mode icons */
+
+html.light i.fab,
+html.light i.fa {
+  color: #000;
+}
+html.light i.fas,
+html.light i.far{
+color: #fff;
+}
+
+/* Icons in primary backgrounds should be black */
+.bg-primary i {
+  color: #000 !important;
+}
+
+html.light .bg-primary i {
+  color: #000 !important;
+}
+
+/* ============================================
+   Button Styles
+   ============================================ */
+html.light .bg-primary {
+  background-color: var(--theme-color) !important;
+  color: #000 !important;
+}
+
+html.light .border-primary {
+  border-color: var(--theme-color) !important;
+}
+
+html.light .hover\:bg-primary:hover {
+  background-color: var(--theme-color) !important;
+  color: #000 !important;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+  html.light section h1 {
+    font-size: 3rem;
+  }
+
+  html.light section h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   Smooth Transitions
+   ============================================ */
+* {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Disable transitions on page load */
+.no-transition {
+  transition: none !important;
+}
+/* ============================================
+   Services Page Styles - Complete
+   ============================================ */
+
+/* Page Banner */
+html.light section.relative.min-h-\[60vh\].bg-\[#18191B\] {
+  background-color: var(--light-bg-alt) !important;
+}
+
+html.light section:first-of-type h1 {
+  color: var(--light-text) !important;
+}
+
+html.light section:first-of-type p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:first-of-type .breadcrumb li:last-child {
+  color: var(--theme-color) !important;
+}
+
+/* Why Choose Section - Skills */
+html.light section:nth-of-type(2) {
+  background-color: var(--light-bg) !important;
+}
+
+html.light section:nth-of-type(2) h2,
+html.light section:nth-of-type(2) h5 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(2) p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:nth-of-type(2) span:not(.bg-primary):not(.text-primary) {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(2) .h-2 {
+  background-color: var(--light-border) !important;
+}
+
+/* Services Cards Section */
+html.light section:nth-of-type(3) {
+  background-color: var(--light-bg-alt) !important;
+}
+
+html.light section:nth-of-type(3) h2 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(3) span:not(.group-hover\:text-black) {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(3)>div>div.space-y-3>div {
+  background-color: var(--light-bg) !important;
+  border: 1px solid var(--light-border);
+}
+
+html.light section:nth-of-type(3) .group h2,
+html.light section:nth-of-type(3) .group h4 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(3) .group p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:nth-of-type(3) .group:hover {
+  background-color: var(--theme-color) !important;
+}
+
+html.light section:nth-of-type(3) .group:hover h2,
+html.light section:nth-of-type(3) .group:hover h4,
+html.light section:nth-of-type(3) .group:hover p {
+  color: #000 !important;
+}
+
+/* Clients Section */
+html.light section:nth-of-type(4) {
+  background-color: var(--light-bg) !important;
+}
+
+html.light section:nth-of-type(4) h2 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(4) span {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(4) .rounded-full {
+  background-color: var(--light-bg-alt) !important;
+  border-color: var(--light-border) !important;
+}
+
+/* Blog Section */
+html.light section:nth-of-type(5) {
+  background-color: var(--light-bg-alt) !important;
+}
+
+html.light section:nth-of-type(5) h2,
+html.light section:nth-of-type(5) h4 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(5) p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light section:nth-of-type(5) span:not(.bg-primary) {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(5) .text-gray-400 {
+  color: var(--light-text-muted) !important;
+}
+
+html.light section:nth-of-type(5) .bg-\[#18191B\] {
+  background-color: var(--light-bg) !important;
+  border: 1px solid var(--light-border);
+}
+
+/* Hover effects for service cards */
+.group:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+html.light .group:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Smooth transitions for all elements */
+.group,
+.group h2,
+.group h4,
+.group p {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
