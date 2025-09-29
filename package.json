@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "vite": "^latest_version",
     "@fortawesome/fontawesome-free": "^7.0.1",
     "gsap": "^3.13.0"
   }
