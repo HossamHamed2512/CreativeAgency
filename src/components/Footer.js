@@ -1,6 +1,6 @@
 export function Footer() {
   return `
-    <footer class="relative dark:bg-black light:bg-gray-dark pt-20 md:pt-32 overflow-hidden">
+    <footer class="relative dark:bg-gray-dark pt-20 md:pt-32 overflow-hidden">
       
       <div class="absolute bottom-20 left-4 md:-left-8 z-0">
         <img src="./src/assets/images/creative-agency/footer/element1.png" alt="Shape" class="opacity-50 md:opacity-70 w-16 md:w-auto">

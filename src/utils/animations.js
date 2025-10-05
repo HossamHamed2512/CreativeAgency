@@ -61,7 +61,11 @@ function addHoverScale(element, scale = 1.05) {
   });
 }
 
-function animateItems(selector, animationType = "bottom", delayIncrement = 0.15) {
+function animateItems(
+  selector,
+  animationType = "bottom",
+  delayIncrement = 0.15
+) {
   const items = document.querySelectorAll(selector);
   items.forEach((item, index) => {
     if (animationType === "bottom") {
@@ -129,9 +133,15 @@ export function initHeroAnimations() {
   const changingText = document.querySelector(".hero-changing-text");
 
   if (heroTitle) animateFromBottom(heroTitle, 0.3, { scrollTrigger: null });
-  if (heroAgency) animateFromSide(heroAgency, "right", 0.5, { scrollTrigger: null });
-  if (heroDescription) animateFromBottom(heroDescription, 0.7, { distance: 50, scrollTrigger: null });
-  if (heroButton) animateFromBottom(heroButton, 0.9, { distance: 30, scrollTrigger: null });
+  if (heroAgency)
+    animateFromSide(heroAgency, "right", 0.5, { scrollTrigger: null });
+  if (heroDescription)
+    animateFromBottom(heroDescription, 0.7, {
+      distance: 50,
+      scrollTrigger: null,
+    });
+  if (heroButton)
+    animateFromBottom(heroButton, 0.9, { distance: 30, scrollTrigger: null });
 
   if (heroSpiral) {
     gsap.to(heroSpiral, {
@@ -156,30 +166,374 @@ export function initHeroAnimations() {
 }
 
 // ============================================
+// Contact Page Animations
+// ============================================
+export function initContactPageAnimations() {
+  const pageTitle = document.querySelector("section:first-of-type h1");
+  const breadcrumb = document.querySelector("section:first-of-type nav");
+  const pageDescription = document.querySelector(
+    "section:first-of-type .max-w-2xl p"
+  );
+
+  if (breadcrumb) {
+    gsap.from(breadcrumb, {
+      opacity: 0,
+      y: -30,
+      duration: 0.8,
+      ease: "power2.out",
+      delay: 0.1,
+    });
+  }
+
+  if (pageTitle) {
+    gsap.from(pageTitle, {
+      opacity: 0,
+      y: 100,
+      duration: 1.2,
+      ease: "power3.out",
+      delay: 0.3,
+    });
+  }
+
+  if (pageDescription) {
+    gsap.from(pageDescription, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.6,
+    });
+  }
+
+  const blurShapes = document.querySelectorAll(
+    "section:first-of-type .absolute"
+  );
+  blurShapes.forEach((shape, index) => {
+    gsap.to(shape, {
+      x: index === 0 ? 50 : -50,
+      y: 50,
+      scale: 1.1,
+      duration: 15 + index * 5,
+      repeat: -1,
+      yoyo: true,
+      ease: "none",
+    });
+  });
+
+  const contactSection = document.querySelector("section:nth-of-type(2)");
+  if (!contactSection) return;
+
+  const formColumn = contactSection.querySelector(".w-full.lg\\:w-7\\/12");
+  if (formColumn) {
+    const badge = formColumn.querySelector("span");
+    const title = formColumn.querySelector("h2");
+    const description = formColumn.querySelector("p");
+    const formInputs = formColumn.querySelectorAll("input, textarea");
+    const submitButton = formColumn.querySelector("button");
+
+    if (badge) {
+      gsap.from(badge, {
+        opacity: 0,
+        x: -30,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: { trigger: badge, start: "top 80%" },
+      });
+    }
+
+    if (title) {
+      gsap.from(title, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2,
+        scrollTrigger: { trigger: title, start: "top 80%" },
+      });
+    }
+
+    if (description) {
+      gsap.from(description, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.4,
+        scrollTrigger: { trigger: description, start: "top 80%" },
+      });
+    }
+
+    formInputs.forEach((input, index) => {
+      gsap.from(input, {
+        opacity: 0,
+        y: 40,
+        duration: 0.6,
+        ease: "power2.out",
+        delay: 0.6 + index * 0.1,
+        scrollTrigger: { trigger: input, start: "top 85%" },
+      });
+
+      input.addEventListener("focus", () => {
+        gsap.to(input, { scale: 1.02, duration: 0.3, ease: "power2.out" });
+      });
+
+      input.addEventListener("blur", () => {
+        gsap.to(input, { scale: 1, duration: 0.3, ease: "power2.out" });
+      });
+    });
+
+    if (submitButton) {
+      gsap.from(submitButton, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.6 + formInputs.length * 0.1,
+        scrollTrigger: { trigger: submitButton, start: "top 85%" },
+      });
+
+      addHoverScale(submitButton, 1.02);
+    }
+  }
+
+  const infoColumn = contactSection.querySelector(".w-full.lg\\:w-5\\/12");
+  if (infoColumn) {
+    const infoWrapper = infoColumn.querySelector(".contact-info-wrapper");
+    const infoItems = infoColumn.querySelectorAll("li");
+
+    if (infoWrapper) {
+      gsap.from(infoWrapper, {
+        opacity: 0,
+        x: 50,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: { trigger: infoWrapper, start: "top 80%" },
+      });
+    }
+
+    infoItems.forEach((item, index) => {
+      gsap.from(item, {
+        opacity: 0,
+        x: 30,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.3 + index * 0.15,
+        scrollTrigger: { trigger: item, start: "top 85%" },
+      });
+
+      const socialIcons = item.querySelectorAll(".flex.gap-3 a");
+      socialIcons.forEach((icon, iconIndex) => {
+        gsap.from(icon, {
+          opacity: 0,
+          scale: 0,
+          rotation: 180,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+          delay: 0.5 + index * 0.15 + iconIndex * 0.1,
+          scrollTrigger: { trigger: icon, start: "top 85%" },
+        });
+
+        icon.addEventListener("mouseenter", () => {
+          gsap.to(icon, {
+            scale: 1.1,
+            rotation: 5,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+
+        icon.addEventListener("mouseleave", () => {
+          gsap.to(icon, {
+            scale: 1,
+            rotation: 0,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+      });
+    });
+
+    const mapShape = infoWrapper?.querySelector("img[alt='shape']");
+    if (mapShape) {
+      gsap.to(mapShape, {
+        rotation: 360,
+        duration: 40,
+        repeat: -1,
+        ease: "none",
+      });
+    }
+  }
+
+  const mapSection = document.querySelector(".agenko-map");
+  const mapIframe = mapSection?.querySelector("iframe");
+  if (mapIframe) {
+    gsap.from(mapIframe, {
+      opacity: 0,
+      y: 100,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: { trigger: mapSection, start: "top 80%" },
+    });
+  }
+}
+
+// ============================================
+// Projects Page Animations
+// ============================================
+export function initProjectsPageAnimations() {
+  const pageTitle = document.querySelector("section:first-of-type h1");
+  const textBox = document.querySelector("section:first-of-type .text-box");
+  const breadcrumb = document.querySelector("section:first-of-type nav");
+  const circleShape = document.querySelector(
+    "section:first-of-type .circle-box img"
+  );
+  const rotatingIcon = document.querySelector(
+    "section:first-of-type .text-box img"
+  );
+
+  if (pageTitle) {
+    gsap.from(pageTitle, {
+      opacity: 0,
+      y: 100,
+      duration: 1.2,
+      ease: "power3.out",
+      delay: 0.2,
+    });
+  }
+
+  if (textBox) {
+    gsap.from(textBox, {
+      opacity: 0,
+      x: -50,
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.4,
+    });
+  }
+
+  if (breadcrumb) {
+    gsap.from(breadcrumb, {
+      opacity: 0,
+      y: -30,
+      duration: 0.8,
+      ease: "power2.out",
+      delay: 0.6,
+    });
+  }
+
+  if (circleShape) {
+    gsap.to(circleShape, {
+      rotation: 360,
+      duration: 20,
+      repeat: -1,
+      ease: "none",
+    });
+  }
+
+  if (rotatingIcon) {
+    gsap.to(rotatingIcon, {
+      rotation: 360,
+      duration: 20,
+      repeat: -1,
+      ease: "none",
+    });
+  }
+
+  const blurShapes = document.querySelectorAll(
+    "section:first-of-type .absolute.top-0"
+  );
+  blurShapes.forEach((shape, index) => {
+    gsap.to(shape, {
+      x: index === 0 ? 50 : -50,
+      y: 50,
+      scale: 1.1,
+      duration: 15 + index * 5,
+      repeat: -1,
+      yoyo: true,
+      ease: "none",
+    });
+  });
+
+  const projectsSection = document.querySelector("section:nth-of-type(2)");
+  if (!projectsSection) return;
+
+  const projectItems = projectsSection.querySelectorAll(".project-itempage");
+  projectItems.forEach((item, index) => {
+    gsap.from(item, {
+      opacity: 0,
+      y: 80,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.1 + index * 0.1,
+      scrollTrigger: { trigger: item, start: "top 85%" },
+    });
+
+    const image = item.querySelector("img");
+    if (image) addHoverScale(image, 1.1);
+
+    const hoverContent = item.querySelector(
+      ".absolute.bottom-8, .absolute.bottom-6"
+    );
+    if (hoverContent) {
+      const categoryBadge = hoverContent.querySelector("a");
+      const title = hoverContent.querySelector("h4");
+
+      item.addEventListener("mouseenter", () => {
+        if (categoryBadge) {
+          gsap.from(categoryBadge, {
+            opacity: 0,
+            y: 20,
+            duration: 0.4,
+            ease: "power2.out",
+          });
+        }
+        if (title) {
+          gsap.from(title, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            delay: 0.1,
+            ease: "power2.out",
+          });
+        }
+      });
+    }
+
+    gsap.to(item, {
+      y: -5,
+      duration: 2 + index * 0.2,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: item,
+        start: "top bottom",
+        end: "bottom top",
+        toggleActions: "play none none reverse",
+      },
+    });
+  });
+
+  const categoryBadges = projectsSection.querySelectorAll("a[href='#']");
+  categoryBadges.forEach((badge) => {
+    addHoverScale(badge, 1.05);
+  });
+}
+
+// ============================================
 // Services Page Animations
 // ============================================
 export function initServicesPageAnimations() {
-  // Page Banner Animation
-  initServicesBannerAnimations();
-  
-  // Why Choose Section
-  initWhyChooseSectionAnimations();
-  
-  // Services Cards
-  initServicesCardsAnimations();
-  
-  // Clients Section
-  initClientsAnimations();
-  
-  // Blog Section
-  initServicesBlogAnimations();
-}
-
-function initServicesBannerAnimations() {
   const pageTitle = document.querySelector("section:first-of-type h1");
-  const textBox = document.querySelector("section:first-of-type .flex.items-center");
-  const breadcrumb = document.querySelector("section:first-of-type .breadcrumb");
-  const circleShape = document.querySelector("section:first-of-type .float-right img");
+  const textBox = document.querySelector(
+    "section:first-of-type .flex.items-center"
+  );
+  const breadcrumb = document.querySelector(
+    "section:first-of-type .breadcrumb"
+  );
+  const circleShape = document.querySelector(
+    "section:first-of-type .float-right img"
+  );
 
   if (pageTitle) {
     gsap.from(pageTitle, {
@@ -219,186 +573,156 @@ function initServicesBannerAnimations() {
       ease: "none",
     });
   }
-}
 
-function initWhyChooseSectionAnimations() {
   const whySection = document.querySelector("section:nth-of-type(2)");
-  if (!whySection) return;
+  if (whySection) {
+    const badge = whySection.querySelector("span");
+    const title = whySection.querySelector("h2");
+    const description = whySection.querySelector("p");
+    const skills = whySection.querySelectorAll(".skill-item");
+    const image = whySection.querySelector("img");
 
-  const badge = whySection.querySelector("span");
-  const title = whySection.querySelector("h2");
-  const description = whySection.querySelector("p");
-  const skills = whySection.querySelectorAll(".skill-item");
-  const image = whySection.querySelector("img");
+    if (badge) animateFromSide(badge, "left", 0);
+    if (title) animateFromBottom(title, 0.2);
+    if (description) animateFromBottom(description, 0.4);
 
-  if (badge) animateFromSide(badge, "left", 0);
-  if (title) animateFromBottom(title, 0.2);
-  if (description) animateFromBottom(description, 0.4);
-
-  skills.forEach((skill, index) => {
-    gsap.from(skill, {
-      opacity: 0,
-      x: -30,
-      duration: 0.8,
-      ease: "power2.out",
-      delay: 0.6 + index * 0.15,
-      scrollTrigger: {
-        trigger: skill,
-        start: "top 85%",
-      },
-    });
-
-    const progressBar = skill.querySelector(".bg-primary");
-    if (progressBar) {
-      gsap.from(progressBar, {
-        width: 0,
-        duration: 1.5,
+    skills.forEach((skill, index) => {
+      gsap.from(skill, {
+        opacity: 0,
+        x: -30,
+        duration: 0.8,
         ease: "power2.out",
-        delay: 0.8 + index * 0.15,
-        scrollTrigger: {
-          trigger: skill,
-          start: "top 85%",
-        },
+        delay: 0.6 + index * 0.15,
+        scrollTrigger: { trigger: skill, start: "top 85%" },
       });
-    }
-  });
 
-  if (image) {
-    gsap.from(image, {
-      opacity: 0,
-      scale: 0.9,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: image,
-        start: "top 80%",
-      },
+      const progressBar = skill.querySelector(".bg-primary");
+      if (progressBar) {
+        gsap.from(progressBar, {
+          width: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          delay: 0.8 + index * 0.15,
+          scrollTrigger: { trigger: skill, start: "top 85%" },
+        });
+      }
     });
-  }
-}
-
-function initServicesCardsAnimations() {
-  const servicesSection = document.querySelector("section:nth-of-type(3)");
-  if (!servicesSection) return;
-
-  const sectionTitle = servicesSection.querySelector("h2");
-  const badge = servicesSection.querySelector("span");
-  const serviceCards = servicesSection.querySelectorAll(".space-y-3 > div");
-
-  if (badge) animateFromSide(badge, "left", 0);
-  if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
-
-  serviceCards.forEach((card, index) => {
-    gsap.from(card, {
-      opacity: 0,
-      y: 60,
-      duration: 0.8,
-      ease: "power2.out",
-      delay: 0.4 + index * 0.1,
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
-      },
-    });
-
-    const image = card.querySelector("img");
-    if (image) {
-      gsap.from(image, {
-        scale: 0.8,
-        duration: 1,
-        ease: "power2.out",
-        delay: 0.6 + index * 0.1,
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-        },
-      });
-    }
-  });
-}
-
-function initClientsAnimations() {
-  const clientsSection = document.querySelector("section:nth-of-type(4)");
-  if (!clientsSection) return;
-
-  const sectionTitle = clientsSection.querySelector("h2");
-  const badge = clientsSection.querySelector("span");
-  const clientItems = clientsSection.querySelectorAll(".rounded-full");
-
-  if (badge) animateFromSide(badge, "left", 0);
-  if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
-
-  clientItems.forEach((item, index) => {
-    gsap.from(item, {
-      opacity: 0,
-      scale: 0.6,
-      duration: 0.6,
-      ease: "back.out(1.7)",
-      delay: 0.4 + index * 0.1,
-      scrollTrigger: {
-        trigger: item,
-        start: "top 90%",
-      },
-    });
-  });
-}
-
-function initServicesBlogAnimations() {
-  const blogSection = document.querySelector("section:nth-of-type(5)");
-  if (!blogSection) return;
-
-  const badge = blogSection.querySelector("span");
-  const title = blogSection.querySelector("h2");
-  const description = blogSection.querySelector("p");
-  const blogItems = blogSection.querySelectorAll(".grid > div");
-
-  if (badge) animateFromSide(badge, "left", 0);
-  if (title) animateFromBottom(title, 0.2);
-  if (description) animateFromSide(description, "right", 0.4);
-
-  blogItems.forEach((item, index) => {
-    const image = item.querySelector("img");
-    const content = item.querySelector(".flex");
 
     if (image) {
       gsap.from(image, {
         opacity: 0,
         scale: 0.9,
-        duration: 0.8,
+        duration: 1,
         ease: "power2.out",
-        delay: 0.6 + index * 0.2,
-        scrollTrigger: {
-          trigger: item,
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: image, start: "top 80%" },
       });
     }
+  }
 
-    if (content) {
-      gsap.from(content, {
+  const servicesSection = document.querySelector("section:nth-of-type(3)");
+  if (servicesSection) {
+    const sectionTitle = servicesSection.querySelector("h2");
+    const badge = servicesSection.querySelector("span");
+    const serviceCards = servicesSection.querySelectorAll(".space-y-6 > div");
+
+    if (badge) animateFromSide(badge, "left", 0);
+    if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
+
+    serviceCards.forEach((card, index) => {
+      gsap.from(card, {
         opacity: 0,
-        y: 30,
+        y: 60,
         duration: 0.8,
         ease: "power2.out",
-        delay: 0.8 + index * 0.2,
-        scrollTrigger: {
-          trigger: item,
-          start: "top 85%",
-        },
+        delay: 0.4 + index * 0.1,
+        scrollTrigger: { trigger: card, start: "top 85%" },
       });
-    }
 
-    addHoverScale(item, 1.02);
-  });
+      const image = card.querySelector("img");
+      if (image) {
+        gsap.from(image, {
+          scale: 0.8,
+          duration: 1,
+          ease: "power2.out",
+          delay: 0.6 + index * 0.1,
+          scrollTrigger: { trigger: card, start: "top 85%" },
+        });
+      }
+    });
+  }
+
+  const clientsSection = document.querySelector("section:nth-of-type(4)");
+  if (clientsSection) {
+    const sectionTitle = clientsSection.querySelector("h2");
+    const badge = clientsSection.querySelector("span");
+    const clientItems = clientsSection.querySelectorAll(".rounded-full");
+
+    if (badge) animateFromSide(badge, "left", 0);
+    if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
+
+    clientItems.forEach((item, index) => {
+      gsap.from(item, {
+        opacity: 0,
+        scale: 0.6,
+        duration: 0.6,
+        ease: "back.out(1.7)",
+        delay: 0.4 + index * 0.1,
+        scrollTrigger: { trigger: item, start: "top 90%" },
+      });
+    });
+  }
+
+  const blogSection = document.querySelector("section:nth-of-type(5)");
+  if (blogSection) {
+    const badge = blogSection.querySelector("span");
+    const title = blogSection.querySelector("h2");
+    const description = blogSection.querySelector("p");
+    const blogItems = blogSection.querySelectorAll(".grid > div");
+
+    if (badge) animateFromSide(badge, "left", 0);
+    if (title) animateFromBottom(title, 0.2);
+    if (description) animateFromSide(description, "right", 0.4);
+
+    blogItems.forEach((item, index) => {
+      const image = item.querySelector("img");
+      const content = item.querySelector(".flex");
+
+      if (image) {
+        gsap.from(image, {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.6 + index * 0.2,
+          scrollTrigger: { trigger: item, start: "top 85%" },
+        });
+      }
+
+      if (content) {
+        gsap.from(content, {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.8 + index * 0.2,
+          scrollTrigger: { trigger: item, start: "top 85%" },
+        });
+      }
+
+      addHoverScale(item, 1.02);
+    });
+  }
 }
 
 // ============================================
-// About Page Animations (من قبل)
+// About Page Animations
 // ============================================
 export function initAboutPageAnimations() {
   const pageTitle = document.querySelector("section:first-of-type h1");
   const breadcrumb = document.querySelector("nav ul");
-  const pageDescription = document.querySelector("section:first-of-type .max-w-2xl p");
+  const pageDescription = document.querySelector(
+    "section:first-of-type .max-w-2xl p"
+  );
 
   if (pageTitle) {
     gsap.from(pageTitle, {
@@ -430,315 +754,254 @@ export function initAboutPageAnimations() {
     });
   }
 
-  initAboutIntroAnimations();
-  initMissionVisionAnimations();
-  initValuesAnimations();
-  initAboutTeamAnimations();
-  initWhyChooseUsAnimations();
-  initAboutCTAAnimations();
-}
-
-function initAboutIntroAnimations() {
   const introSection = document.querySelector("section:nth-of-type(2)");
-  if (!introSection) return;
+  if (introSection) {
+    const badge = introSection.querySelector("span:first-child");
+    const title = introSection.querySelector("h2");
+    const paragraphs = introSection.querySelectorAll("p");
+    const stats = introSection.querySelectorAll(".grid > div");
+    const image = introSection.querySelector("img");
+    const floatingElement = introSection.querySelector(".absolute.-bottom-8");
 
-  const badge = introSection.querySelector("span:first-child");
-  const title = introSection.querySelector("h2");
-  const paragraphs = introSection.querySelectorAll("p");
-  const stats = introSection.querySelectorAll(".grid > div");
-  const image = introSection.querySelector("img");
-  const floatingElement = introSection.querySelector(".absolute.-bottom-8");
+    if (badge) animateFromSide(badge, "left", 0);
+    if (title) animateFromBottom(title, 0.2);
 
-  if (badge) animateFromSide(badge, "left", 0);
-  if (title) animateFromBottom(title, 0.2);
-
-  paragraphs.forEach((p, index) => {
-    animateFromBottom(p, 0.4 + index * 0.1);
-  });
-
-  stats.forEach((stat, index) => {
-    gsap.from(stat, {
-      opacity: 0,
-      scale: 0.8,
-      duration: 0.8,
-      ease: "back.out(1.7)",
-      delay: 0.8 + index * 0.1,
-      scrollTrigger: {
-        trigger: stat,
-        start: "top 85%",
-      },
-    });
-  });
-
-  if (image) {
-    gsap.from(image, {
-      opacity: 0,
-      scale: 0.9,
-      duration: 1.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: image,
-        start: "top 80%",
-      },
-    });
-  }
-
-  if (floatingElement) {
-    gsap.from(floatingElement, {
-      opacity: 0,
-      scale: 0,
-      rotation: -180,
-      duration: 1,
-      ease: "back.out(1.7)",
-      delay: 1.2,
-      scrollTrigger: {
-        trigger: floatingElement,
-        start: "top 80%",
-      },
+    paragraphs.forEach((p, index) => {
+      animateFromBottom(p, 0.4 + index * 0.1);
     });
 
-    gsap.to(floatingElement, {
-      y: -10,
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-    });
-  }
-}
-
-function initMissionVisionAnimations() {
-  const missionVisionSection = document.querySelector("section:nth-of-type(3)");
-  if (!missionVisionSection) return;
-
-  const sectionTitle = missionVisionSection.querySelector("h2");
-  const badge = missionVisionSection.querySelector("span");
-  const missionVisionBoxes = missionVisionSection.querySelectorAll(".grid > div");
-
-  if (badge) animateFromSide(badge, "left", 0);
-  if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
-
-  missionVisionBoxes.forEach((box, index) => {
-    gsap.from(box, {
-      opacity: 0,
-      y: 100,
-      duration: 1,
-      ease: "power3.out",
-      delay: 0.4 + index * 0.2,
-      scrollTrigger: {
-        trigger: box,
-        start: "top 80%",
-      },
+    stats.forEach((stat, index) => {
+      gsap.from(stat, {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        delay: 0.8 + index * 0.1,
+        scrollTrigger: { trigger: stat, start: "top 85%" },
+      });
     });
 
-    const icon = box.querySelector(".fas");
-    if (icon) {
-      animateIcon(icon, 0.6 + index * 0.2);
-    }
-  });
-}
-
-function initValuesAnimations() {
-  const valuesSection = document.querySelector("section:nth-of-type(4)");
-  if (!valuesSection) return;
-
-  const sectionTitle = valuesSection.querySelector("h2");
-  const badge = valuesSection.querySelector("span");
-  const valueItems = valuesSection.querySelectorAll(".grid > div");
-
-  if (badge) animateFromSide(badge, "left", 0);
-  if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
-
-  valueItems.forEach((item, index) => {
-    gsap.from(item, {
-      opacity: 0,
-      y: 80,
-      duration: 0.8,
-      ease: "power2.out",
-      delay: 0.4 + index * 0.1,
-      scrollTrigger: {
-        trigger: item,
-        start: "top 85%",
-      },
-    });
-
-    const icon = item.querySelector(".fas");
-    const iconContainer = item.querySelector(".w-20");
-
-    if (icon) {
-      animateIcon(icon, 0.6 + index * 0.1);
+    if (image) {
+      gsap.from(image, {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: { trigger: image, start: "top 80%" },
+      });
     }
 
-    if (iconContainer) {
-      gsap.to(iconContainer, {
-        y: -5,
+    if (floatingElement) {
+      gsap.from(floatingElement, {
+        opacity: 0,
+        scale: 0,
+        rotation: -180,
+        duration: 1,
+        ease: "back.out(1.7)",
+        delay: 1.2,
+        scrollTrigger: { trigger: floatingElement, start: "top 80%" },
+      });
+
+      gsap.to(floatingElement, {
+        y: -10,
         duration: 2,
         repeat: -1,
         yoyo: true,
         ease: "power1.inOut",
-        delay: index * 0.2,
       });
     }
-  });
-}
+  }
 
-function initAboutTeamAnimations() {
+  const missionVisionSection = document.querySelector("section:nth-of-type(3)");
+  if (missionVisionSection) {
+    const sectionTitle = missionVisionSection.querySelector("h2");
+    const badge = missionVisionSection.querySelector("span");
+    const missionVisionBoxes =
+      missionVisionSection.querySelectorAll(".grid > div");
+
+    if (badge) animateFromSide(badge, "left", 0);
+    if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
+
+    missionVisionBoxes.forEach((box, index) => {
+      gsap.from(box, {
+        opacity: 0,
+        y: 100,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.4 + index * 0.2,
+        scrollTrigger: { trigger: box, start: "top 80%" },
+      });
+
+      const icon = box.querySelector(".fas");
+      if (icon) animateIcon(icon, 0.6 + index * 0.2);
+    });
+  }
+
+  const valuesSection = document.querySelector("section:nth-of-type(4)");
+  if (valuesSection) {
+    const sectionTitle = valuesSection.querySelector("h2");
+    const badge = valuesSection.querySelector("span");
+    const valueItems = valuesSection.querySelectorAll(".grid > div");
+
+    if (badge) animateFromSide(badge, "left", 0);
+    if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
+
+    valueItems.forEach((item, index) => {
+      gsap.from(item, {
+        opacity: 0,
+        y: 80,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.4 + index * 0.1,
+        scrollTrigger: { trigger: item, start: "top 85%" },
+      });
+
+      const icon = item.querySelector(".fas");
+      const iconContainer = item.querySelector(".w-20");
+
+      if (icon) animateIcon(icon, 0.6 + index * 0.1);
+
+      if (iconContainer) {
+        gsap.to(iconContainer, {
+          y: -5,
+          duration: 2,
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut",
+          delay: index * 0.2,
+        });
+      }
+    });
+  }
+
   const teamSection = document.querySelector("section:nth-of-type(5)");
-  if (!teamSection) return;
+  if (teamSection) {
+    const sectionTitle = teamSection.querySelector("h2");
+    const badge = teamSection.querySelector("span");
+    const teamMembers = teamSection.querySelectorAll(".grid > div");
+    const ctaButton = teamSection.querySelector('a[href="team.html"]');
 
-  const sectionTitle = teamSection.querySelector("h2");
-  const badge = teamSection.querySelector("span");
-  const teamMembers = teamSection.querySelectorAll(".grid > div");
-  const ctaButton = teamSection.querySelector('a[href="team.html"]');
+    if (badge) animateFromSide(badge, "left", 0);
+    if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
 
-  if (badge) animateFromSide(badge, "left", 0);
-  if (sectionTitle) animateFromBottom(sectionTitle, 0.2);
+    teamMembers.forEach((member, index) => {
+      const memberImage = member.querySelector("img");
+      const memberInfo = member.querySelector(".text-center");
 
-  teamMembers.forEach((member, index) => {
-    const memberImage = member.querySelector("img");
-    const memberInfo = member.querySelector(".text-center");
+      if (memberImage) {
+        gsap.from(memberImage, {
+          opacity: 0,
+          scale: 0.8,
+          duration: 1,
+          ease: "power2.out",
+          delay: 0.4 + index * 0.15,
+          scrollTrigger: { trigger: member, start: "top 80%" },
+        });
+      }
 
-    if (memberImage) {
-      gsap.from(memberImage, {
+      if (memberInfo) {
+        gsap.from(memberInfo, {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.6 + index * 0.15,
+          scrollTrigger: { trigger: member, start: "top 80%" },
+        });
+      }
+
+      if (memberImage) addHoverScale(memberImage.parentElement, 1.05);
+    });
+
+    if (ctaButton) animateFromBottom(ctaButton, 0.8);
+  }
+
+  const whyChooseSection = document.querySelector("section:nth-of-type(6)");
+  if (whyChooseSection) {
+    const badge = whyChooseSection.querySelector("span");
+    const title = whyChooseSection.querySelector("h2");
+    const features = whyChooseSection.querySelectorAll(".space-y-6 > div");
+    const statsBoxes = whyChooseSection.querySelectorAll(".grid > div");
+
+    if (badge) animateFromSide(badge, "left", 0);
+    if (title) animateFromBottom(title, 0.2);
+
+    features.forEach((feature, index) => {
+      const icon = feature.querySelector(".fas");
+      const content = feature.querySelector("div:last-child");
+
+      if (icon) animateIcon(icon, 0.4 + index * 0.1);
+
+      if (content) {
+        gsap.from(content, {
+          opacity: 0,
+          x: 30,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.5 + index * 0.1,
+          scrollTrigger: { trigger: feature, start: "top 85%" },
+        });
+      }
+    });
+
+    statsBoxes.forEach((box, index) => {
+      gsap.from(box, {
         opacity: 0,
         scale: 0.8,
-        duration: 1,
-        ease: "power2.out",
-        delay: 0.4 + index * 0.15,
-        scrollTrigger: {
-          trigger: member,
-          start: "top 80%",
-        },
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        delay: 0.6 + index * 0.1,
+        scrollTrigger: { trigger: box, start: "top 85%" },
+      });
+    });
+  }
+
+  const ctaSection = document.querySelector("section:last-of-type");
+  if (ctaSection) {
+    const title = ctaSection.querySelector("h2");
+    const description = ctaSection.querySelector("p");
+    const buttons = ctaSection.querySelectorAll(".flex > a");
+
+    if (title) {
+      gsap.from(title, {
+        opacity: 0,
+        y: 80,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: { trigger: title, start: "top 80%" },
       });
     }
 
-    if (memberInfo) {
-      gsap.from(memberInfo, {
+    if (description) {
+      gsap.from(description, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.3,
+        scrollTrigger: { trigger: description, start: "top 80%" },
+      });
+    }
+
+    buttons.forEach((button, index) => {
+      gsap.from(button, {
         opacity: 0,
         y: 30,
         duration: 0.8,
         ease: "power2.out",
-        delay: 0.6 + index * 0.15,
-        scrollTrigger: {
-          trigger: member,
-          start: "top 80%",
-        },
-      });
-    }
-
-    if (memberImage) {
-      addHoverScale(memberImage.parentElement, 1.05);
-    }
-  });
-
-  if (ctaButton) {
-    animateFromBottom(ctaButton, 0.8);
-  }
-}
-
-function initWhyChooseUsAnimations() {
-  const whyChooseSection = document.querySelector("section:nth-of-type(6)");
-  if (!whyChooseSection) return;
-
-  const badge = whyChooseSection.querySelector("span");
-  const title = whyChooseSection.querySelector("h2");
-  const features = whyChooseSection.querySelectorAll(".space-y-6 > div");
-  const statsBoxes = whyChooseSection.querySelectorAll(".grid > div");
-
-  if (badge) animateFromSide(badge, "left", 0);
-  if (title) animateFromBottom(title, 0.2);
-
-  features.forEach((feature, index) => {
-    const icon = feature.querySelector(".fas");
-    const content = feature.querySelector("div:last-child");
-
-    if (icon) {
-      animateIcon(icon, 0.4 + index * 0.1);
-    }
-
-    if (content) {
-      gsap.from(content, {
-        opacity: 0,
-        x: 30,
-        duration: 0.8,
-        ease: "power2.out",
         delay: 0.5 + index * 0.1,
-        scrollTrigger: {
-          trigger: feature,
-          start: "top 85%",
-        },
+        scrollTrigger: { trigger: button, start: "top 85%" },
       });
-    }
-  });
 
-  statsBoxes.forEach((box, index) => {
-    gsap.from(box, {
-      opacity: 0,
-      scale: 0.8,
-      duration: 0.8,
-      ease: "back.out(1.7)",
-      delay: 0.6 + index * 0.1,
-      scrollTrigger: {
-        trigger: box,
-        start: "top 85%",
-      },
-    });
-  });
-}
-
-function initAboutCTAAnimations() {
-  const ctaSection = document.querySelector("section:last-of-type");
-  if (!ctaSection) return;
-
-  const title = ctaSection.querySelector("h2");
-  const description = ctaSection.querySelector("p");
-  const buttons = ctaSection.querySelectorAll(".flex > a");
-
-  if (title) {
-    gsap.from(title, {
-      opacity: 0,
-      y: 80,
-      duration: 1.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: title,
-        start: "top 80%",
-      },
+      addHoverScale(button, 1.05);
     });
   }
-
-  if (description) {
-    gsap.from(description, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power2.out",
-      delay: 0.3,
-      scrollTrigger: {
-        trigger: description,
-        start: "top 80%",
-      },
-    });
-  }
-
-  buttons.forEach((button, index) => {
-    gsap.from(button, {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      ease: "power2.out",
-      delay: 0.5 + index * 0.1,
-      scrollTrigger: {
-        trigger: button,
-        start: "top 85%",
-      },
-    });
-
-    addHoverScale(button, 1.05);
-  });
 }
 
-// باقي الـ animations (Video, Services, Projects, etc...)
+// ============================================
+// Home Page Animations
+// ============================================
+
 export function initVideoAnimations() {
   const videoSection = document.querySelector(".video-section");
   const videoImage = document.querySelector(".video-section img");
@@ -828,7 +1091,11 @@ export function initProjectsAnimations() {
 
   animateFromBottom(projectsSection.querySelector(".text-center"), 0);
 
-  const projectItems = animateItems(".projects-section .project-item", "bottom", 0.2);
+  const projectItems = animateItems(
+    ".projects-section .project-itempage",
+    "bottom",
+    0.2
+  );
   projectItems.forEach((item) => {
     const img = item.querySelector("img");
     if (img) addHoverScale(img, 1.1);
@@ -847,7 +1114,11 @@ export function initProcessAnimations() {
     scrollTrigger: { trigger: processSection, start: "top 80%" },
   });
 
-  const processBoxes = animateItems(".process-section .process-box", "bottom", 0.15);
+  const processBoxes = animateItems(
+    ".process-section .process-box",
+    "bottom",
+    0.15
+  );
   processBoxes.forEach((box, index) => {
     const icon = box.querySelector(".icon");
     if (icon) animateIcon(icon, 0.3 + index * 0.15);
@@ -858,9 +1129,14 @@ export function initCompanyAnimations() {
   const companySection = document.querySelector(".company-section");
   if (!companySection) return;
 
-  animateFromSide(companySection.querySelector(".text-center, .lg\\:text-left"), "left");
+  animateFromSide(
+    companySection.querySelector(".text-center, .lg\\:text-left"),
+    "left"
+  );
 
-  const clientItems = document.querySelectorAll(".company-section .client-item");
+  const clientItems = document.querySelectorAll(
+    ".company-section .client-item"
+  );
   clientItems.forEach((item, index) => {
     gsap.from(item, {
       opacity: 0,
@@ -909,7 +1185,10 @@ export function initTestimonialAnimations() {
     scrollTrigger: { trigger: testimonialSection, start: "top 70%" },
   });
 
-  animateFromSide(testimonialSection.querySelector(".testimonial-item"), "right");
+  animateFromSide(
+    testimonialSection.querySelector(".testimonial-item"),
+    "right"
+  );
 }
 
 export function initBlogAnimations() {

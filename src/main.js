@@ -19,6 +19,8 @@ import {
   initFooterAnimations,
   initAboutPageAnimations,
   initServicesPageAnimations,
+  initProjectsPageAnimations,
+  initContactPageAnimations,
 } from "./utils/animations";
 
 // Initialize Theme Manager
@@ -43,15 +45,28 @@ initThemeToggle(themeManager);
 
 // Initialize animations based on page
 document.addEventListener("DOMContentLoaded", () => {
+  // الحصول على اسم الصفحة الحالية
   const currentPath = window.location.pathname;
-  const currentPage = currentPath.split("/").pop() || "index.html";
+
+  // استخراج اسم الصفحة وإزالة .html إن وجدت
+  let currentPage = currentPath.split("/").pop() || "index.html";
+
+  // إزالة .html من اسم الصفحة
+  currentPage = currentPage.replace(".html", "");
+
+  // إذا كانت الصفحة فاضية (الرئيسية)، اجعلها "home"
+  if (currentPage === "" || currentPage === "index") {
+    currentPage = "home";
+  }
+
+  console.log("Current Page:", currentPage); // للتأكد من اسم الصفحة
 
   // Common animations for all pages
   initHeaderAnimations();
   initFooterAnimations();
 
   // Page-specific animations
-  if (currentPage === "index.html" || currentPage === "") {
+  if (currentPage === "home") {
     // Home page animations
     initHeroAnimations();
     initVideoAnimations();
@@ -63,11 +78,17 @@ document.addEventListener("DOMContentLoaded", () => {
     initAwardsAnimations();
     initTestimonialAnimations();
     initBlogAnimations();
-  } else if (currentPage === "about.html") {
+  } else if (currentPage === "about") {
     // About page animations
     initAboutPageAnimations();
-  } else if (currentPage === "services.html") {
+  } else if (currentPage === "services") {
     // Services page animations
     initServicesPageAnimations();
+  } else if (currentPage === "projects") {
+    // Projects page animations
+    initProjectsPageAnimations();
+  } else if (currentPage === "contact") {
+    // Contact page animations
+    initContactPageAnimations();
   }
 });

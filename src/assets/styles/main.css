@@ -149,6 +149,23 @@ html.light body {
 }
 
 /* ============================================
+   Custom Animations
+   ============================================ */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* ============================================
    Active Page States
    ============================================ */
 .nav-link.active-page {
@@ -171,6 +188,116 @@ html.light body {
   height: 20px;
   background-color: var(--theme-color);
   border-radius: 2px;
+}
+
+/* ============================================
+   Contact Page Styles
+   ============================================ */
+
+/* Contact Info Wrapper */
+.contact-info-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-wrapper ul li {
+  position: relative;
+}
+
+/* Contact Form Styles */
+.agenko-contact-form input,
+.agenko-contact-form textarea {
+  font-weight: 500;
+}
+
+.agenko-contact-form input:focus,
+.agenko-contact-form textarea:focus {
+  box-shadow: 0 0 0 3px rgba(156, 254, 79, 0.1);
+}
+
+/* Light Mode Contact Form */
+html.light .agenko-contact-form input,
+html.light .agenko-contact-form textarea {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+  color: var(--light-text) !important;
+}
+
+html.light .agenko-contact-form input::placeholder,
+html.light .agenko-contact-form textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+html.light .agenko-contact-form input:focus,
+html.light .agenko-contact-form textarea:focus {
+  border-color: var(--theme-color) !important;
+  box-shadow: 0 0 0 3px rgba(156, 254, 79, 0.1);
+}
+
+/* Light Mode Contact Info */
+html.light .contact-info-wrapper {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+}
+
+html.light .contact-info-wrapper h3 {
+  color: var(--light-text) !important;
+}
+
+html.light .contact-info-wrapper p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light .contact-info-wrapper a:not(.bg-white):not([class*="rounded-full"]) {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light .contact-info-wrapper a:not(.bg-white):hover {
+  color: var(--theme-color) !important;
+}
+
+html.light .contact-info-wrapper .border-t {
+  border-color: #e5e7eb !important;
+}
+
+/* Social Icons Light Mode */
+html.light .contact-info-wrapper .rounded-full {
+  background-color: #f3f4f6 !important;
+}
+
+html.light .contact-info-wrapper .rounded-full i {
+  color: #000 !important;
+}
+
+html.light .contact-info-wrapper .rounded-full:hover {
+  background-color: var(--theme-color) !important;
+}
+
+/* Map Section */
+.agenko-map iframe {
+  filter: grayscale(100%) brightness(0.8) contrast(1.2);
+}
+
+html.light .agenko-map iframe {
+  filter: grayscale(100%) brightness(1) contrast(1.1);
+}
+
+/* Contact Page Hero */
+html.light section:first-of-type nav a {
+  color: #6b7280 !important;
+}
+
+html.light section:first-of-type nav a:hover {
+  color: var(--theme-color) !important;
+}
+
+/* Form Button Hover */
+.agenko-contact-form button:hover {
+  box-shadow: 0 10px 30px rgba(156, 254, 79, 0.3);
+}
+
+html.light .agenko-contact-form button:hover {
+  box-shadow: 0 10px 30px rgba(156, 254, 79, 0.25);
 }
 
 /* ============================================
@@ -210,7 +337,7 @@ html.light body {
 }
 
 /* ============================================
-   Light Mode - About Page Styles (FIXED)
+   Light Mode - About Page Styles
    ============================================ */
 
 /* Page Hero Section */
@@ -369,7 +496,253 @@ html.light section:last-of-type .text-primary {
 }
 
 /* ============================================
-   Icons Fix - Ensure they appear
+   Services Page Styles
+   ============================================ */
+
+/* Why Choose Section - Skills */
+html.light section:nth-of-type(2) h2,
+html.light section:nth-of-type(2) h5 {
+  color: var(--light-text) !important;
+}
+
+html.light section:nth-of-type(2) .h-2 {
+  background-color: var(--light-border) !important;
+}
+
+/* Services Cards Section */
+html.light section:nth-of-type(3) {
+  background-color: var(--light-bg-alt) !important;
+}
+
+html.light section:nth-of-type(3)>div>div.space-y-6>div {
+  background-color: var(--light-bg) !important;
+  border: 1px solid var(--light-border);
+}
+
+html.light section:nth-of-type(3) .group:hover {
+  background-color: var(--theme-color) !important;
+}
+
+html.light section:nth-of-type(3) .group:hover h2,
+html.light section:nth-of-type(3) .group:hover h4,
+html.light section:nth-of-type(3) .group:hover p {
+  color: #000 !important;
+}
+
+/* Clients Section */
+html.light section:nth-of-type(4) .rounded-full {
+  background-color: var(--light-bg-alt) !important;
+  border-color: var(--light-border) !important;
+}
+
+/* Blog Section */
+html.light section:nth-of-type(5) .text-gray-400 {
+  color: var(--light-text-muted) !important;
+}
+
+html.light section:nth-of-type(5) .bg-\[#18191B\] {
+  background-color: var(--light-bg) !important;
+  border: 1px solid var(--light-border);
+}
+
+/* ============================================
+   Projects Page Styles
+   ============================================ */
+
+/* Rotate Animation for Icons */
+.rotate360 {
+  animation: spin 7s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Projects Hero Section */
+html.light section.relative.bg-\[#18191B\] {
+  background-color: var(--light-bg-alt) !important;
+}
+
+html.light .page-content h1 {
+  color: var(--light-text) !important;
+}
+
+html.light .page-content .text-box p {
+  color: var(--light-text-secondary) !important;
+}
+
+html.light .page-content nav ul {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html.light .page-content nav li a {
+  color: var(--light-text-muted) !important;
+}
+
+html.light .page-content nav li.text-primary {
+  color: var(--theme-color) !important;
+}
+
+/* Projects Grid Section */
+html.light .agenko-project {
+  background-color: var(--light-bg) !important;
+}
+
+/* Light mode - keep dark overlay for text readability */
+html.light .project-itempage::before {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
+}
+
+html.light .project-itempage>div {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 70%, transparent 100%);
+}
+
+/* Text stays white in both modes for contrast against dark overlay */
+html.light .project-itempage h4,
+html.light .project-itempage h4 a {
+  color: #ffffff !important;
+}
+
+html.light .project-itempage h4 a:hover {
+  color: var(--theme-color) !important;
+  background-color: rgba(156, 254, 79, 0.15);
+}
+
+/* Project Items Masonry Grid */
+.project-itempage {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.project-itempage img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-itempage:hover img {
+  transform: scale(1.1);
+}
+
+/* Dark gradient overlay on hover */
+.project-itempage::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-itempage:hover::before {
+  opacity: 1;
+}
+
+/* Hover content container */
+.project-itempage>div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 70%, transparent 100%);
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+
+.project-itempage:hover>div {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Category badges with light green background */
+.project-itempage a[href='#'] {
+  display: inline-block;
+  background-color: #e8f5d5 !important;
+  color: #000000 !important;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.project-itempage a[href='#']:hover {
+  background-color: var(--theme-color) !important;
+  transform: scale(1.05);
+}
+
+/* Light mode category badges */
+html.light .project-itempage a[href='#'] {
+  background-color: #e8f5d5 !important;
+  color: #000000 !important;
+}
+
+html.light .project-itempage a[href='#']:hover {
+  background-color: var(--theme-color) !important;
+  color: #000 !important;
+}
+
+/* Project titles - always white for contrast */
+.project-itempage h4 {
+  color: #ffffff !important;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1rem;
+}
+
+.project-itempage h4 a {
+  color: inherit;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  margin: -0.25rem -0.5rem;
+  border-radius: 0.375rem;
+}
+
+.project-itempage h4 a:hover {
+  color: var(--theme-color) !important;
+  background-color: rgba(156, 254, 79, 0.1);
+}
+
+/* Ensure proper stacking */
+.project-itempage * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Circle borders in hero */
+html.light section .rounded-full.border {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Grid gap and spacing */
+.agenko-project .grid {
+  gap: 2rem;
+}
+
+/* ============================================
+   Icons Fix
    ============================================ */
 i.fas,
 i.far,
@@ -383,14 +756,14 @@ i.fa {
 }
 
 /* Light mode icons */
-
 html.light i.fab,
 html.light i.fa {
   color: #000;
 }
+
 html.light i.fas,
-html.light i.far{
-color: #fff;
+html.light i.far {
+  color: #fff;
 }
 
 /* Icons in primary backgrounds should be black */
@@ -420,8 +793,43 @@ html.light .hover\:bg-primary:hover {
 }
 
 /* ============================================
+   Hover Effects
+   ============================================ */
+.group:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+html.light .group:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Project Items Hover */
+.project-itempage {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-itempage:hover {
+  transform: translateY(-5px);
+}
+
+.project-itempage img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-itempage:hover img {
+  transform: scale(1.1);
+}
+
+/* ============================================
    Responsive Design
    ============================================ */
+@media (max-width: 1024px) {
+  .contact-info-wrapper {
+    margin-top: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   html.light section h1 {
     font-size: 3rem;
@@ -429,6 +837,25 @@ html.light .hover\:bg-primary:hover {
 
   html.light section h2 {
     font-size: 2rem;
+  }
+
+  .agenko-project .grid {
+    gap: 1rem;
+  }
+
+  .project-itempage>div {
+    padding: 1.5rem;
+  }
+
+  .contact-info-wrapper {
+    padding: 2rem !important;
+  }
+
+ 
+
+  .agenko-contact-form input,
+  .agenko-contact-form textarea {
+    padding: 1rem 1.25rem !important;
   }
 }
 
@@ -444,140 +871,6 @@ html.light .hover\:bg-primary:hover {
 /* Disable transitions on page load */
 .no-transition {
   transition: none !important;
-}
-/* ============================================
-   Services Page Styles - Complete
-   ============================================ */
-
-/* Page Banner */
-html.light section.relative.min-h-\[60vh\].bg-\[#18191B\] {
-  background-color: var(--light-bg-alt) !important;
-}
-
-html.light section:first-of-type h1 {
-  color: var(--light-text) !important;
-}
-
-html.light section:first-of-type p {
-  color: var(--light-text-secondary) !important;
-}
-
-html.light section:first-of-type .breadcrumb li:last-child {
-  color: var(--theme-color) !important;
-}
-
-/* Why Choose Section - Skills */
-html.light section:nth-of-type(2) {
-  background-color: var(--light-bg) !important;
-}
-
-html.light section:nth-of-type(2) h2,
-html.light section:nth-of-type(2) h5 {
-  color: var(--light-text) !important;
-}
-
-html.light section:nth-of-type(2) p {
-  color: var(--light-text-secondary) !important;
-}
-
-html.light section:nth-of-type(2) span:not(.bg-primary):not(.text-primary) {
-  color: var(--light-text) !important;
-}
-
-html.light section:nth-of-type(2) .h-2 {
-  background-color: var(--light-border) !important;
-}
-
-/* Services Cards Section */
-html.light section:nth-of-type(3) {
-  background-color: var(--light-bg-alt) !important;
-}
-
-html.light section:nth-of-type(3) h2 {
-  color: var(--light-text) !important;
-}
-
-html.light section:nth-of-type(3) span:not(.group-hover\:text-black) {
-  color: var(--light-text) !important;
-}
-
-html.light section:nth-of-type(3)>div>div.space-y-3>div {
-  background-color: var(--light-bg) !important;
-  border: 1px solid var(--light-border);
-}
-
-html.light section:nth-of-type(3) .group h2,
-html.light section:nth-of-type(3) .group h4 {
-  color: var(--light-text) !important;
-}
-
-html.light section:nth-of-type(3) .group p {
-  color: var(--light-text-secondary) !important;
-}
-
-html.light section:nth-of-type(3) .group:hover {
-  background-color: var(--theme-color) !important;
-}
-
-html.light section:nth-of-type(3) .group:hover h2,
-html.light section:nth-of-type(3) .group:hover h4,
-html.light section:nth-of-type(3) .group:hover p {
-  color: #000 !important;
-}
-
-/* Clients Section */
-html.light section:nth-of-type(4) {
-  background-color: var(--light-bg) !important;
-}
-
-html.light section:nth-of-type(4) h2 {
-  color: var(--light-text) !important;
-}
-
-html.light section:nth-of-type(4) span {
-  color: var(--light-text) !important;
-}
-
-html.light section:nth-of-type(4) .rounded-full {
-  background-color: var(--light-bg-alt) !important;
-  border-color: var(--light-border) !important;
-}
-
-/* Blog Section */
-html.light section:nth-of-type(5) {
-  background-color: var(--light-bg-alt) !important;
-}
-
-html.light section:nth-of-type(5) h2,
-html.light section:nth-of-type(5) h4 {
-  color: var(--light-text) !important;
-}
-
-html.light section:nth-of-type(5) p {
-  color: var(--light-text-secondary) !important;
-}
-
-html.light section:nth-of-type(5) span:not(.bg-primary) {
-  color: var(--light-text) !important;
-}
-
-html.light section:nth-of-type(5) .text-gray-400 {
-  color: var(--light-text-muted) !important;
-}
-
-html.light section:nth-of-type(5) .bg-\[#18191B\] {
-  background-color: var(--light-bg) !important;
-  border: 1px solid var(--light-border);
-}
-
-/* Hover effects for service cards */
-.group:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-html.light .group:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* Smooth transitions for all elements */
